@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    /* Стили CSS */
+
+    .container {
+        max-width: 960px;
+        margin: 0 auto;
+        display: flex; /* Добавлена строка для размещения блоков рядом */
+    }
+
+    .product-images {
+        width: 50%;
+        position: relative; /* Добавлено для позиционирования кнопок */
+    }
+
+    .main-image {
+        text-align: center;
+        position: relative; /* Добавлено для позиционирования кнопок */
+    }
+
+    .main-image img {
+        max-width: 600px;
+    }
+
+    .secondary-images {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 20px;
+        float: left;
+    
+        /* Добавьте эти правила */
+        display: flex;
+        flex-direction: column;
+        margin-right: 20px;
+    }
+
+    .secondary-images img {
+        width: 100px;
+        height: 100px;
+        margin: 5px;
+        border: 1px solid #ddd;
+    }
+
+    .product-info {
+        width: 30%;
+        padding: 20px;
+        margin-left: auto; /* Добавьте это правило */
+    }
+
+    /* Стили для кнопок листания */
+    .prev-button, .next-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        border: none;
+        padding: 10px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .prev-button {
+        left: 0; /* Изменено на 0 для выравнивания по краю */
+    }
+
+    .next-button {
+        right: 0; /* Изменено на 0 для выравнивания по краю */
+    }
+</style>
+
+<div class="container">
+    <div class="product-images">
+        <!-- Добавлены кнопки листания -->
+        <button class="prev-button" onclick="plusSlides(-1)">&#10094;</button>
+        <button class="next-button" onclick="plusSlides(1)">&#10095;</button>
+        <div class="secondary-images">
+            {% for image in product.images.all %}
+                <img src="{{ image.image.url }}" alt="{{ product.name }}">
+            {% endfor %}
+        </div>
+        <div class="main-image">
+            <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}">
+        </div>
+    </div>
+    <div class="product-info">
+        <p class="brand">{{ product.brand.name }}</p>
+        <h2>{{ product.name }}</h2>
+        <p class="price">
+            {% if product.has_discount %}
+                <span class="old-price"><s>$</s>{{ product.price }}</span>
+                <span class="new-price">${{ product.calculate_price }}</span>
+            {% else %}
+                ${{ product.price }}
+            {% endif %}
+        </p>
+        <p class="description">{{ product.description }}</p>
+        <p style="color: #888; font-size: 14px;">Price when purchased online</p>
+        <form action="/add-to-cart/{{ product.id }}">
+            <button type="submit" style="background-color: #3063c2; color: #fff; border-radius: 20px; padding: 10px 20px; border: none;">Add to Cart</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // JavaScript функция для листания фотографий
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("main-image")[0].getElementsByTagName("img");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex-1].style.display = "block";
+    }
+</script>
+
+{% endblock %}

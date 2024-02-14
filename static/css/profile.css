@@ -1,0 +1,29 @@
+.panel{
+    background-color: deepskyblue;
+    width: auto;
+    height: 150px;
+}
+aside{
+    float: left;
+    background: whitesmoke;
+    width: 20%;
+    padding: 2.5%;
+    height: 100vh;
+    border-right: 2px solid black;
+}
+aside img{
+    width: 100px;
+    float: left;
+}
+aside .logo{
+    font-size: 40px;
+    margin-left: 10px;
+    font-weight: bold;
+    position: relative;
+    top: -5px;
+}
+aside h3,h4,h5{
+    margin-top: 50px;
+    font-size: 20px;
+}
+aside ul {list-style: none}

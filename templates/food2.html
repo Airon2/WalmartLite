@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WalmartLite</title>
+    <link rel="stylesheet" href="/static/css/category.css" />
+    <link
+      rel="shortcut icon"
+      href="/media/icons/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="shortcut icon" href="/media/icons/td2.png" type="image/png" />
+    <style>
+      body {
+        margin: 0;
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+      }
+
+      nav a {
+        margin-right: 10px;
+        text-decoration: none;
+        color: white;
+      }
+
+      nav .last-item {
+        margin-left: auto;
+      }
+
+      main {
+        width: 100%;
+        margin: 0 auto;
+        background-color: rgb(55, 59, 58);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .custom-block {
+        width: 80%;
+        margin: 20px 0;
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .custom-block .main-block,
+      .custom-block .secondary-block,
+      .custom-block .product-block {
+        width: 100%;
+        height: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .custom-block .main-block p,
+      .custom-block .secondary-block p,
+      .custom-block .product-block p {
+        font-size: 24px;
+        color: black;
+        margin: 0;
+      }
+
+      .custom-block .small-block {
+        width: calc(33.33% - 10px);
+        margin: 0 5px;
+        height: 160px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #f0f0f0;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .custom-block .small-block img,
+      .custom-block .product-block img {
+        max-width: 60%;
+        max-height: 70%;
+        height: auto;
+        margin-bottom: 10px;
+      }
+
+      .custom-block .small-block p,
+      .custom-block .product-block p {
+        font-size: 14px;
+        margin: 0;
+      }
+
+      .custom-block .shop-now,
+      .custom-block .add-to-cart {
+        padding: 10px;
+        background-color: #4caf50;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        cursor: pointer;
+      }
+
+      .custom-block:hover,
+      .custom-block .small-block:hover,
+      .custom-block .product-block:hover {
+        background-color: #e0e0e0;
+      }
+
+      .fresh-menu {
+        text-align: left;
+        margin-left: 10%;
+        font-size: 24px;
+        color: white;
+      }
+
+      /* Новый стиль для кастомных блоков товаров */
+      .custom-block .product-block {
+        position: relative;
+      }
+
+      .custom-block .product-block .product-details {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .custom-block .product-block .product-details a {
+        display: block;
+        background-color: #4caf50;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        padding: 5px;
+        font-size: 14px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div
+        style="
+          width: 100%;
+          margin: 0;
+          background-color: rgb(30, 144, 255);
+          height: 90px;
+          display: flex;
+          align-items: center;
+        "
+      >
+        <h1>WalmartLite</h1>
+        <nav>
+          <a href="#">Departments</a>
+          <a href="#">Services</a>
+          <a href="#" class="last-item">My Items</a>
+          <a href="#" class="last-item">Account</a>
+          <a href="#" class="last-item">Basket</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <!-- Ваш существующий код для продуктов -->
+      <div class="custom-block">
+        <div class="main-block">
+          <p>Продам гараж +75616165165</p>
+        </div>
+      </div>
+      <p class="fresh-menu">A fresh menu for less</p>
+      <div class="custom-block">
+        <div class="secondary-block">
+          <div class="small-block" onclick="location.href='/path/to/page1';">
+            <img src="../media/phototovarov/1.png" alt="Image 1" />
+            <p>Lean proteins</p>
+            <p>Save on high-quality meat & seafood to mix into your dishes.</p>
+            <a class="shop-now" href="/path/to/page1">Shop Now</a>
+          </div>
+          <div class="small-block" onclick="location.href='/path/to/page2';">
+            <img src="../media/phototovarov/2.png" alt="Image 2" />
+            <p>Low-carb sides</p>
+            <p>Crush your new year's goals with easy sides for less</p>
+            <a class="shop-now" href="/path/to/page2">Shop Now</a>
+          </div>
+          <div class="small-block" onclick="location.href='/path/to/page3';">
+            <img src="../media/phototovarov/3.png" alt="Image 3" />
+            <p>Feel-good frozen finds</p>
+            <p>Filling meals that can be ready in minutes—yes, please.</p>
+            <a class="shop-now" href="/path/to/page3">Shop Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="custom-block">
+        <div class="category">
+          <a href="#" onclick="showSubCategories('valentinesDay')">Valentine's Day</a>
+          <div id="valentinesDaySubCategories" class="sub-category" style="display: none;">
+            <a href="#">Chocolates</a>
+            <a href="#">Flowers</a>
+          </div>
+        </div>
+        <div class="category">
+          <a href="#" onclick="showSubCategories('electronics')">Electronics</a>
+          <div id="electronicsSubCategories" class="sub-category" style="display: none;">
+            <a href="#">Laptops</a>
+            <a href="#">Smartphones</a>
+          </div>
+        </div>
+      </div>
+      <div class="custom-block">
+        <div class="product-block" onclick="location.href='/path/to/product2';">
+          <img src="../media/phototovarov/F_1.png" alt="Product 2" />
+          <div class="product-details">
+            <a class="add-to-cart" href="/path/to/add-to-cart/product2">+ADD</a>
+            <p>Miss Jones</p>
+            <p>$5.23</p>
+          </div>
+        </div>
+        <div class="product-block" onclick="location.href='/path/to/product3';">
+          <img src="../media/phototovarov/F_1.png" alt="Product 3" />
+          <div class="product-details">
+            <a class="add-to-cart" href="/path/to/add-to-cart/product3">+ADD</a>
+            <p>Betty</p>
+            <p>$4.32</p>
+          </div>
+        </div>
+        <div class="product-block" onclick="location.href='/path/to/product4';">
+          <img src="../media/phototovarov/F_1.png" alt="Product 4" />
+          <div class="product-details">
+            <a class="add-to-cart" href="/path/to/add-to-cart/product4">+ADD</a>
+            <p>Coffee</p>
+            <p>$4.28</p>
+          </div>
+        </div>
+        <div class="product-block" onclick="location.href='/path/to/product5';">
+          <img src="../media/phototovarov/F_1.png" alt="Product 5" />
+          <div class="product-details">
+            <a class="add-to-cart" href="/path/to/add-to-cart/product5">+ADD</a>
+            <p>International </p>
+            <p>$4.68</p>
+          </div>
+        </div>
+        <div class="product-block" onclick="location.href='/path/to/product6';">
+          <img src="../media/phototovarov/F_1.png" alt="Product 6" />
+          <div class="product-details">
+            <a class="add-to-cart" href="/path/to/add-to-cart/product6">+ADD</a>
+            <p>Cheerios Veg</p>
+            <p>$4.93</p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="container" style="margin: 0 auto">
+        <p>Copyright &copy; 2023 WalmartLite</p>
+      </div>
+    </footer>
+
+    <script>
+      // JavaScript для скрытия/показа подкатегорий
+      function showSubCategories(category) {
+        var subCategories = document.getElementById(category + 'SubCategories');
+        if (subCategories.style.display === 'none') {
+          subCategories.style.display = 'block';
+        } else {
+          subCategories.style.display = 'none';
+        }
+      }
+    </script>
+  </body>
+</html>

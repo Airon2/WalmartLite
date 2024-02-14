@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<div style="margin: 200px;">
+    <div style="margin-top: 80px,; margin-bottom: 80px;">
+        <form  style="max-width: 500px; padding: 15px 35px 45px; background-color: rgb(140, 133, 133);">       
+            <h2 style="margin-bottom: 30px;">Please login</h2>
+            <input type="email" style="position: relative; font-size: 16px; height: auto; padding: 10px; box-sizing: border-box; " name="username" placeholder="Email Address" required="" autofocus="" />
+            <input type="password" style="position: relative; font-size: 16px; height: auto; padding: 10px; box-sizing: border-box; " name="password" placeholder="Password" required=""/>      
+            <label style="font-weight: normal;">
+                <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+            </label>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>   
+        </form>
+    </div>
+</div>
+{% endblock content %}
